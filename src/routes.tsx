@@ -3,7 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 import { AppLayout } from "@/pages/_layouts/App";
 import { AuthLayout } from "@/pages/_layouts/Auth";
 import { Dashboard } from "@/pages/app/Dashboard";
-import { Signin } from "@/pages/auth/Signin";
+import { SignIn } from "@/pages/auth/SignIn";
+import { SignUp } from "@/pages/auth/SignUp";
 
 export const router = createBrowserRouter([
   { 
@@ -12,8 +13,11 @@ export const router = createBrowserRouter([
     children: [{ path: '/', element: <Dashboard />}]
   },
   { 
-    path: '/sign-in', 
+    path: '/', 
     element: <AuthLayout />, 
-    children: [{ path: '/sign-in', element: <Signin />}]
+    children: [
+      { path: '/sign-in', element: <SignIn />},
+      { path: '/sign-up', element: <SignUp />}
+    ]
   },
 ])

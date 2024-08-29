@@ -1,19 +1,20 @@
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { toast } from "sonner";
 
-const sigInFormSchema = z.object({
+const signInFormSchema = z.object({
   email: z.string().email()
 })
 
-type SignInForm = z.infer<typeof sigInFormSchema>
+type SignInForm = z.infer<typeof signInFormSchema>
 
-export function Signin() {
+export function SignIn() {
   const { register, handleSubmit, formState: { isSubmitting } } = useForm<SignInForm>()
 
   async function handleSignIn(data: SignInForm) {
@@ -31,7 +32,11 @@ export function Signin() {
   return (
     <>
       <Helmet title="Login" />
-     <div className="p-8">
+      <div className="p-8">
+        <Button asChild variant="ghost" className="absolute right-8 top-8">
+          <Link to="/sign-up">Novo estabelecimento</Link>
+        </Button>
+
       <div className="w-[350px] flex flex-col justify-center gap-6">
         <div className="flex flex-col gap-2 text-center">
           <h1 className="text-2xl font-semibold tracking-tight">Acessar painel</h1>
