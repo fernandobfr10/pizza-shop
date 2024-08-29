@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { AppLayout } from "@/pages/_layouts/App";
 import { AuthLayout } from "@/pages/_layouts/Auth";
 
-import { Dashboard } from "@/pages/app/Dashboard";
+import { Dashboard } from "@/pages/app/dashboard/Dashboard";
 import { Orders } from "@/pages/app/orders/Orders";
 
 import { SignIn } from "@/pages/auth/SignIn";
